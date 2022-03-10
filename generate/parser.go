@@ -2,6 +2,7 @@ package generate
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"reflect"
@@ -395,7 +396,12 @@ func schemaOfField(member spec.Member) swaggerSchemaObject {
 			case strings.HasPrefix(option, exampleOption):
 				segs := strings.Split(option, equalToken)
 				if len(segs) == 2 {
-					ret.Example = []byte(segs[1])
+					exampleRawMessage := new(json.RawMessage)
+					if err := json.Unmarshal([]byte(segs[2]), &exampleRawMessage);err != nil{
+						ret.Example = segs[2]
+					}else{
+						ret.Example = exampleRawMessage
+					}
 				}
 			case strings.HasPrefix(option, optionsOption):
 

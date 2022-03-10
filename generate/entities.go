@@ -155,7 +155,7 @@ type schemaCore struct {
 	Type    string          `json:"type,omitempty"`
 	Format  string          `json:"format,omitempty"`
 	Ref     string          `json:"$ref,omitempty"`
-	Example string `json:"example,omitempty"`
+	Example json.RawMessage `json:"example,omitempty"`
 
 	Items *swaggerItemsObject `json:"items,omitempty"`
 	// If the item is an enumeration include a list of all the *NAMES* of the

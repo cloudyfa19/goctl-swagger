@@ -397,8 +397,8 @@ func schemaOfField(member spec.Member) swaggerSchemaObject {
 				segs := strings.Split(option, equalToken)
 				if len(segs) == 2 {
 					exampleRawMessage := new(json.RawMessage)
-					if err := json.Unmarshal([]byte(segs[2]), &exampleRawMessage);err != nil{
-						ret.Example = segs[2]
+					if err := json.Unmarshal([]byte(segs[1]), &exampleRawMessage);err != nil{
+						ret.Example = segs[1]
 					}else{
 						ret.Example = exampleRawMessage
 					}

@@ -5,8 +5,8 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/urfave/cli/v2"
 	"github.com/cloudyfa19/goctl-swagger/action"
+	"github.com/urfave/cli/v2"
 )
 
 var (

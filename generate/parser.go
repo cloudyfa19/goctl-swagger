@@ -17,6 +17,7 @@ var strColon = []byte(":")
 
 const (
 	defaultOption   = "default"
+	exampleOption   = "example"
 	stringOption    = "string"
 	optionalOption  = "optional"
 	optionsOption   = "options"
@@ -141,6 +142,11 @@ func renderServiceRoutes(service spec.Service, groups []spec.Group, paths swagge
 									segs := strings.Split(option, equalToken)
 									if len(segs) == 2 {
 										sp.Default = segs[1]
+									}
+								} else if strings.HasPrefix(option, exampleOption) {
+									segs := strings.Split(option, equalToken)
+									if len(segs) == 2 {
+										sp.Example = segs[1]
 									}
 								} else if !strings.HasPrefix(option, optionalOption) {
 									sp.Required = true

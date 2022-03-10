@@ -155,7 +155,7 @@ type schemaCore struct {
 	Type    string          `json:"type,omitempty"`
 	Format  string          `json:"format,omitempty"`
 	Ref     string          `json:"$ref,omitempty"`
-	Example json.RawMessage `json:"example,omitempty"`
+	Example string `json:"example,omitempty"`
 
 	Items *swaggerItemsObject `json:"items,omitempty"`
 	// If the item is an enumeration include a list of all the *NAMES* of the
@@ -163,6 +163,7 @@ type schemaCore struct {
 	// start from 0 index it will be great. I don't think that is a good assumption.
 	Enum    []string `json:"enum,omitempty"`
 	Default string   `json:"default,omitempty"`
+
 }
 
 type swaggerItemsObject schemaCore

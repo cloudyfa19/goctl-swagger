@@ -395,7 +395,7 @@ func schemaOfField(member spec.Member) swaggerSchemaObject {
 			case strings.HasPrefix(option, exampleOption):
 				segs := strings.Split(option, equalToken)
 				if len(segs) == 2 {
-					ret.Example = segs[1]
+					ret.Example = []byte(segs[1])
 				}
 			case strings.HasPrefix(option, optionsOption):
 
